@@ -25,6 +25,7 @@ namespace Ikarus\SPS\Visualizer\Brick;
 
 
 use Ikarus\SPS\Visualizer\Brick\Render\BrickRenderInterface;
+use Ikarus\SPS\Visualizer\Brick\Render\ConfiguredBrickRenderInterface;
 
 class RenderBrick extends AbstractBrick
 {
@@ -47,6 +48,22 @@ class RenderBrick extends AbstractBrick
 	{
 		$this->render = $render;
 		return $this;
+	}
+
+	public function setClickable(bool $clickable)
+	{
+		if($this->render instanceof ConfiguredBrickRenderInterface)
+			$clickable = $this->render->isClickable() ? $clickable : false;
+
+		parent::setClickable($clickable);
+		return $this;
+	}
+
+	public function toHTML(int $indent = 0)
+	{
+		if($this->render instanceof ConfiguredBrickRenderInterface)
+			$this->transformation = $this->transformation & $this->render->getAllowedTransformations();
+		return parent::toHTML($indent);
 	}
 
 	protected function getBoundingBox()
