@@ -13,7 +13,6 @@
     }
   },
   "require" : {
-    "php": "^7.2",
-    "ikarus/sps-visualizer": "^0.1"
+    "php": "^7.2"
   }
 }
