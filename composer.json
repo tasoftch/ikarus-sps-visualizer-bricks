@@ -1,0 +1,19 @@
+{
+  "name": "ikarus/sps-visualizer-bricks",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Abplanalp",
+      "email": "info@tasoft.ch"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ikarus\\SPS\\Visualizer\\Brick\\" : "src"
+    }
+  },
+  "require" : {
+    "php": "^7.2",
+    "ikarus/sps-visualizer": "^0.1"
+  }
+}
