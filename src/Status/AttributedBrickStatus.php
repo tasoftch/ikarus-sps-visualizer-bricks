@@ -31,13 +31,12 @@ class AttributedBrickStatus extends BrickStatus
 
 	/**
 	 * AttributedBrickStatus constructor.
-	 * @param string $id
 	 * @param int $status
 	 * @param array $attributes
 	 */
-	public function __construct(string $id, int $status, array $attributes = [])
+	public function __construct(int $status, array $attributes = [])
 	{
-		parent::__construct($id, $status);
+		parent::__construct($status);
 		$this->attributes = $attributes;
 	}
 
@@ -47,7 +46,6 @@ class AttributedBrickStatus extends BrickStatus
 	public function serialize()
 	{
 		return serialize([
-			$this->id,
 			$this->status,
 			$this->attributes
 		]);
@@ -58,7 +56,7 @@ class AttributedBrickStatus extends BrickStatus
 	 */
 	public function unserialize($serialized)
 	{
-		list($this->id, $this->status, $this->attributes) = unserialize($serialized);
+		list($this->status, $this->attributes) = unserialize($serialized);
 	}
 
 	/**
@@ -95,7 +93,6 @@ class AttributedBrickStatus extends BrickStatus
 	protected function getJSONFields(): array
 	{
 		return [
-			'id' => $this->getID(),
 			"status" => $this->getStatus(),
 			"attributes" => $this->getAttributes()
 		];

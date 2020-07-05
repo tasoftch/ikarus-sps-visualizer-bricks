@@ -26,29 +26,16 @@ namespace Ikarus\SPS\Visualizer\Brick\Status;
 
 abstract class AbstractStatus implements StatusInterface
 {
-	/** @var string|int */
-	protected $id;
 	/** @var int */
 	protected $status;
 
 	/**
 	 * AbstractStatuc constructor.
-	 * @param int|string $id
 	 * @param int $status
 	 */
-	public function __construct($id, int $status)
+	public function __construct(int $status)
 	{
-		$this->id = $id;
 		$this->status = $status;
-	}
-
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getID()
-	{
-		return $this->id;
 	}
 
 	/**
@@ -74,7 +61,6 @@ abstract class AbstractStatus implements StatusInterface
 	 */
 	protected function getJSONFields(): array {
 		return [
-			'id' => $this->getID(),
 			'status' => $this->getStatus()
 		];
 	}

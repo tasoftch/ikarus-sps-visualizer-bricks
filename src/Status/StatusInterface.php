@@ -33,13 +33,6 @@ interface StatusInterface
 	const STATUS_HIGHLIGHTED = 16;
 
 	/**
-	 * Gets the brick's identifier
-	 *
-	 * @return string|int
-	 */
-	public function getID();
-
-	/**
 	 * Get the status to be rendered for the brick
 	 *
 	 * @return int

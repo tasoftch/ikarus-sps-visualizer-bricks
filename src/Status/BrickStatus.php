@@ -34,7 +34,6 @@ class BrickStatus extends AbstractStatus implements Serializable
 	public function serialize()
 	{
 		return serialize([
-			$this->getID(),
 			$this->getStatus()
 		]);
 	}
@@ -44,6 +43,6 @@ class BrickStatus extends AbstractStatus implements Serializable
 	 */
 	public function unserialize($serialized)
 	{
-		list($this->id, $this->status) = unserialize($serialized);
+		list($this->status) = unserialize($serialized);
 	}
 }
