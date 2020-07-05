@@ -91,4 +91,13 @@ class AttributedBrickStatus extends BrickStatus
 		unset($this->attributes[$name]);
 		return $this;
 	}
+
+	protected function getJSONFields(): array
+	{
+		return [
+			'id' => $this->getID(),
+			"status" => $this->getStatus(),
+			"attributes" => $this->getAttributes()
+		];
+	}
 }
