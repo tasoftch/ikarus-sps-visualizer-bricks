@@ -26,6 +26,12 @@ namespace Ikarus\SPS\Visualizer\Brick\Status;
 
 interface StatusInterface
 {
+	const STATUS_OFF = 1;
+	const STATUS_ON = 2;
+	const STATUS_ERROR = 4;
+	const STATUS_MANUAL = 8;
+	const STATUS_HIGHLIGHTED = 16;
+
 	/**
 	 * Gets the brick's identifier
 	 *
