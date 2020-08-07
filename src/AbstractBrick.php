@@ -88,7 +88,9 @@ abstract class AbstractBrick implements BrickInterface
 		elseif($this->transformation & static::TRANSFORMATION_FLIP_VERTICAL)
 			$t .= ' flip-v';
 
-		$str = "<svg version='1.1' class='brick$cl$t x-$this->x y-$this->y w-$this->width h-$this->height' viewBox='$vb'>";
+		$classes = implode(" ", $this->getCSSClasses());
+
+		$str = "<svg version='1.1' class='brick$cl$t x-$this->x y-$this->y w-$this->width h-$this->height $classes' viewBox='$vb'>";
 		$str .= $this->renderPath();
 		$str .= "</svg>";
 		return $str;
@@ -187,5 +189,15 @@ abstract class AbstractBrick implements BrickInterface
 		return $brick;
 	}
 
+    /**
+     * Returns additional classes to render the svg html object.
+     *
+     * @return array
+     */
+	protected function getCSSClasses() { return []; }
+
+    /**
+     * Renders the svg inner elements
+     */
 	abstract protected function renderPath();
 }
