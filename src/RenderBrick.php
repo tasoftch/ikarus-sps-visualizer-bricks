@@ -75,8 +75,14 @@ class RenderBrick extends AbstractBrick
 		return parent::getBoundingBox();
 	}
 
+	protected function getCSSClasses()
+    {
+        if(method_exists($r = $this->getRender(), 'getCSSClasses'))
+            return $r->getCSSClasses();
+        return [];
+    }
 
-	protected function renderPath()
+    protected function renderPath()
 	{
 		if(!$this->getRender())
 			trigger_error("Can not render brick", E_USER_WARNING);
