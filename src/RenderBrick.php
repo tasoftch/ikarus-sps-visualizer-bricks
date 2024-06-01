@@ -33,7 +33,7 @@ class RenderBrick extends AbstractBrick
 	private $render;
 
 	/**
-	 * @return BrickRenderInterface
+	 * @return BrickRenderInterface|null
 	 */
 	public function getRender(): ?BrickRenderInterface
 	{

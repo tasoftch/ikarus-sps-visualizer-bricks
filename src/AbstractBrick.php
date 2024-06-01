@@ -43,13 +43,14 @@ abstract class AbstractBrick implements BrickInterface
 
 	/**
 	 * AbstractBrick constructor.
+	 *
 	 * @param int|AbstractBrick $x
-	 * @param $y
-	 * @param $width
-	 * @param $height
+	 * @param int $y
+	 * @param int $width
+	 * @param int $height
 	 * @param bool $clickable
 	 */
-	public function __construct($x = 0, $y = 0, $width = 1, $height = 1, bool $clickable = false)
+	public function __construct(int|AbstractBrick $x = 0, int $y = 0, int $width = 1, int $height = 1, bool $clickable = false)
 	{
 		if($x instanceof AbstractBrick) {
 			$this->x = $x->x;
